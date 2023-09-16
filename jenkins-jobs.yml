@@ -4,7 +4,7 @@
     - jenkins
   vars:
     mjob:
-      - { job_name: "frontend" , repo_name: "https://github.com/sreedharm07/a-frontend.git" }
+      - { job_name: "dispatch" , repo_name: "https://github.com/sreedharm07/a-dispatch.git" }
 
     sjob:
      - { job_name: "dispatch" , repo_name: "https://github.com/sreedharm07/a-dispatch.git" }
