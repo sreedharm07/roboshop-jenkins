@@ -1,6 +1,5 @@
 - name: jobs
-  hosts: localhost
-  become: true
+  hosts: all
   roles:
     - jenkins
   vars:

@@ -1,4 +1,4 @@
-- name: Copy sjob file
+- name: Copy mjob file
   ansible.builtin.template:
     src: mjob.xml
     dest: /tmp/mjob.xml
