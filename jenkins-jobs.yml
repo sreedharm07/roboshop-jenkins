@@ -1,5 +1,5 @@
 - name: jobs
-  hosts: localhost
+  hosts: all
   become: true
   roles:
     - jenkins
