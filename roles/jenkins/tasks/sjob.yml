@@ -4,7 +4,7 @@
     dest: /tmp/sjob.xml
 
 
-- name: Create a job- "{ { item.job_name  } }"
+- name: Create a job- {{ item.job_name  }}
   community.general.jenkins_job:
     config: "{{ lookup('file', '/tmp/sjob.xml') }}"
     name: "{ { item.job_name  } }"
