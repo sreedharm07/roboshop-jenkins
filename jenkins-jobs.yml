@@ -1,0 +1,18 @@
+- name: robo-shop setup
+  hosts: localhost
+  become: true
+  roles:
+    - jenkins
+  vars:
+    mjob:
+     { job_name: "cart" , repo_path: "https://github.com/sreedharm07/a-cart.git"}
+     { job_name: "frontend" , repo_path: "https://github.com/sreedharm07/a-frontend.git" }
+     { job_name: "catalogue" , repo_path: "https://github.com/sreedharm07/a-catalogue.git" }
+     { job_name: "payment" , repo_path: "https://github.com/sreedharm07/a-payment.git" }
+     { job_name: "shipping" , repo_path: "https://github.com/sreedharm07/a-shipping.git" }
+
+
+
+
+    sjob:
+      { job_name: "dispatch" , repo_path: "https://github.com/sreedharm07/a-dispatch.git" }
