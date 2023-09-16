@@ -12,4 +12,4 @@
 
 
     sjob:
-     - { job_name: "dispatch" , repo_path: "https://github.com/sreedharm07/a-dispatch.git" }
+     - {job_name: "dispatch" , repo_path: "https://github.com/sreedharm07/a-dispatch.git"}
