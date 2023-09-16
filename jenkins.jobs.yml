@@ -1,0 +1,11 @@
+- name: create jenkins jobs
+  hosts: localhost
+  roles:
+    - jenkins
+  vars:
+    mjob:
+      { job_name: "cart" , repo_name: "https://github.com/sreedharm07/a-cart.git" }
+
+    sjob:
+      { job_name: "dispatch" , repo_name: "https://github.com/sreedharm07/a-dispatch.git" }
+
