@@ -1,10 +1,10 @@
 - name: importing single branch tasks
-  ansible.builtin.import_tasks:
+  ansible.builtin.include_tasks:
      file: sjob.yml
   loop: "{{ sjob }}"
 
 - name: importing multi branch  tasks
-  ansible.builtin.import_tasks:
+  ansible.builtin.include_tasks:
     file: mjob.yml
   loop: "{{ mjob }}"
 
