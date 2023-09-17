@@ -4,8 +4,8 @@
     - jenkins
   vars:
     folder:
-      - { folder-name: "ci-jobs" }
-      - { folder-name: "infra-jobs"}
+      - { folder_name: "ci-jobs" }
+      - { folder_name: "infra-jobs"}
 
     mjob:
      - { job_name: "cart" , repo_path: "https://github.com/sreedharm07/a-cart.git" , folder-name: "ci-jobs" }
