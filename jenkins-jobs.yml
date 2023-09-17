@@ -3,13 +3,17 @@
   roles:
     - jenkins
   vars:
+    folder:
+      - { folder-name: "ci-jobs" }
+      - { folder-name: "infra-jobs"}
+
     mjob:
-     - { job_name: "cart" , repo_path: "https://github.com/sreedharm07/a-cart.git" }
-     - { job_name: "frontend" , repo_path: "https://github.com/sreedharm07/a-frontend.git" }
-     - { job_name: "catalogue" , repo_path: "https://github.com/sreedharm07/a-catalogue.git" }
-     - { job_name: "payment" , repo_path: "https://github.com/sreedharm07/a-payment.git" }
-     - { job_name: "shipping" , repo_path: "https://github.com/sreedharm07/a-shipping.git" }
+     - { job_name: "cart" , repo_path: "https://github.com/sreedharm07/a-cart.git" , folder-name: "ci-jobs" }
+     - { job_name: "frontend" , repo_path: "https://github.com/sreedharm07/a-frontend.git" , folder-name: "ci-jobs"}
+     - { job_name: "catalogue" , repo_path: "https://github.com/sreedharm07/a-catalogue.git" , folder-name: "ci-jobs"}
+     - { job_name: "payment" , repo_path: "https://github.com/sreedharm07/a-payment.git" , folder-name: "ci-jobs"}
+     - { job_name: "shipping" , repo_path: "https://github.com/sreedharm07/a-shipping.git" , folder-name: "ci-jobs"}
 
 
     sjob:
-     - {job_name: "dispatch" , repo_path: "https://github.com/sreedharm07/a-dispatch.git"}
+     - {job_name: "dispatch" , repo_path: "https://github.com/sreedharm07/a-dispatch.git" , folder-name: "infra-jobs"}
