@@ -12,7 +12,7 @@ def call () {
         agent any
 
         stages {
-            stage('Compile') {
+            stage('Compile-file') {
                 steps {
                     echo 'Hello World'
                     script {
