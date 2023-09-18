@@ -18,7 +18,6 @@ def call () {
             }
 
             stage('Code Quality') {
-            }
                 steps {
                     echo 'Hello World'
                 }
