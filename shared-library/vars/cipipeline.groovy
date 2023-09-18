@@ -23,6 +23,7 @@ def call () {
             }
 
             stage('Code Security') {
+                when { expression == "main" }
                 steps {
                     echo 'Hello World'
                 }
