@@ -16,6 +16,7 @@ def call () {
                 }
                 steps {
                     echo 'Hello World'
+                    sh 'env'
                 }
             }
 
@@ -25,6 +26,7 @@ def call () {
                 }
                 steps {
                     echo 'Hello World'
+                    sh 'env'
                 }
             }
 
@@ -34,6 +36,7 @@ def call () {
                 }
                 steps {
                     echo 'Hello World'
+                    sh 'env'
                 }
             }
 
