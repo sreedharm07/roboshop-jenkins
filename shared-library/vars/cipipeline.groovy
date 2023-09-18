@@ -11,7 +11,7 @@ def call () {
             }
 
             stage('Test') {
-                when{
+                when {
                     allof {
                         expression{ env.BRANCH_NAME != null}
                         expression{ env.TAG_NAME  == null }
@@ -28,7 +28,7 @@ def call () {
                 when {
                     allof {
                         expression { env.BRANCH_NAME != null }
-                        expression { env.BRANCH_NAME == null }
+                        expression { env.TAG_NAME == null }
                     }
                 }
                 steps {
