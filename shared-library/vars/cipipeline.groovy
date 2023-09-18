@@ -23,7 +23,9 @@ def call () {
             }
 
             stage('Code Security') {
-                when { expression == "main" }
+                when {
+                    expression { BRANCH_NAME == "main"}
+                }
                 steps {
                     echo 'Hello World'
                 }
