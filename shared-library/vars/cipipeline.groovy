@@ -1,34 +1,29 @@
-def info(message) {
-    echo "INFO: ${message}"
-}
-
-def warning(message) {
-    echo "WARNING: ${message}"
-}
-
 def call () {
 
     pipeline {
         agent any
 
         stages {
-            stage('Compile-file') {
+            stage('Compile-code') {
                 steps {
-                    echo 'Hello World'
-                    script {
-                        info 'Starting'
-                        warning 'Nothing to do!'
+                    sh 'env'
+
                     }
                 }
             }
 
             stage('Test') {
+                when {
+                    expression { TAG_NAME != "null"}
                 steps {
                     echo 'Hello World'
                 }
             }
 
             stage('Code Quality') {
+                when {
+                    expression { BRANCH_NAME == "main"}
+            }
                 steps {
                     echo 'Hello World'
                 }
@@ -40,7 +35,7 @@ def call () {
                 }
             }
 
-            stage('App Deploy') {
+            stage('Release') {
                 steps {
                     echo 'Hello World'
                 }
