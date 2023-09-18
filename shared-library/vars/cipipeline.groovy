@@ -36,6 +36,7 @@ def call () {
                     expression{ env.TAG_NAME ==~ ".*" }
                 }
                 steps {
+                    sh 'env'
                     echo 'Hello World'
                 }
             }
