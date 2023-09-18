@@ -7,22 +7,17 @@ def call () {
             stage('Compile-code') {
                 steps {
                     sh 'env'
-
                     }
                 }
             }
 
             stage('Test') {
-                when {
-                    expression { TAG_NAME != "null"}
                 steps {
                     echo 'Hello World'
                 }
             }
 
             stage('Code Quality') {
-                when {
-                    expression { BRANCH_NAME == "main"}
             }
                 steps {
                     echo 'Hello World'
@@ -42,5 +37,3 @@ def call () {
             }
 
         }
-    }
-}
