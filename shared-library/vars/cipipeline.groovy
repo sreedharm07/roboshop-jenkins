@@ -11,12 +11,18 @@ def call () {
             }
 
             stage('Test') {
+                when{
+                    expression{ env.TAG_NAME == "null"}
+                }
                 steps {
                     echo 'Hello World'
                 }
             }
 
             stage('Code Quality') {
+                when{
+                    expression{ env.TAG_NAME == "null"}
+                }
                 steps {
                     echo 'Hello World'
                 }
