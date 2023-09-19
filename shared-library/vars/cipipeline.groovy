@@ -2,6 +2,8 @@ def call() {
 
     node('workstation') {
         sh " find . | sed -e '1d' | xargs rm -rf "
+        git branch: 'main', url: "https://github.com/sreedharm07/a-{component}.git"
+
         stage('compile-code') {
             common.compile()
         }
