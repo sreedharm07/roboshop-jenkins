@@ -3,10 +3,10 @@ def call() {
     node('workstation') {
          sh 'env'
         if (env.TAG_NAME ==~ ".*"){
-            env.BRANCH_NAME = "refs/tags/${TAG_NAME}"
+            env.BRANCH_NAME = "refs/tags/${env.TAG_NAME}"
         }
         else
-            env.BRANCH_NAME = "${BRANCH_NAME}"
+            env.BRANCH_NAME = "${env.BRANCH_NAME}"
 
         checkout scmGit(
                 branches: [[name: BRANCH_NAME]],
