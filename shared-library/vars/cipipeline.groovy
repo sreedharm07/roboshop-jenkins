@@ -1,63 +1,24 @@
 def call () {
 
-    pipeline {
-        agent any
+    node {
+        stage('Compile-code') {
+            common.compile
+        }
 
-        stages {
-            stage('Compile-code') {
-                steps {
-                    sh 'env'
-                }
-            }
+        stage('test') {
+            echo 'test'
+        }
 
-            stage('Test') {
-                when {
-                    allOf {
-                        expression{ env.BRANCH_NAME != null}
-                        expression{ env.TAG_NAME  == null }
+        stage('code-quality') {
+            echo 'code-quality'
+        }
 
-                    }
-                }
-                steps {
-                    echo 'Hello World'
-                    sh 'env'
-                }
-            }
+        stage('code-security') {
+            echo 'code-security'
+        }
 
-            stage('Code Quality') {
-                when {
-                    allOf {
-                        expression { env.BRANCH_NAME != null }
-                        expression { env.TAG_NAME == null }
-                    }
-                }
-                steps {
-                    echo 'Hello World'
-                    sh 'env'
-                }
-            }
-
-            stage('Code Security') {
-                when {
-                    expression { BRANCH_NAME == "main"}
-                }
-                steps {
-                    echo 'Hello World'
-                    sh 'env'
-                }
-            }
-
-            stage('Release') {
-                when{
-                    expression{ env.TAG_NAME ==~ ".*" }
-                }
-                steps {
-                    sh 'env'
-                    echo 'Hello World'
-                }
-            }
-
+        stage('release') {
+            echo 'release'
         }
     }
-}
-//okk
+}//okk
