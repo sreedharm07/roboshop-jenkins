@@ -1,6 +1,6 @@
-def call () {
+def call ()
 
-    node {
+    node('workstation') {
         stage('Compile-code') {
             common.compile
         }
@@ -21,4 +21,4 @@ def call () {
             echo 'release'
         }
     }
-}//okk
+}
