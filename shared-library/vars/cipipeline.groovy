@@ -1,7 +1,8 @@
 def call() {
 
     node('workstation') {
-         sh 'env'
+         sh "find ."
+
         if (env.TAG_NAME ==~ ".*"){
             env.BRANCH_NAME = "refs/tags/${env.TAG_NAME}"
         }
