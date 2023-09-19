@@ -1,4 +1,4 @@
-def call (){
+def call() {
 
     node('workstation') {
         stage('Compile-code') {
