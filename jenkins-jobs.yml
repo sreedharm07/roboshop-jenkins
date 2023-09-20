@@ -13,6 +13,8 @@
      - { job_name: "catalogue" , repo_path: "https://github.com/sreedharm07/a-catalogue.git" , folder_name: "ci-jobs"}
      - { job_name: "payment" , repo_path: "https://github.com/sreedharm07/a-payment.git" , folder_name: "ci-jobs"}
      - { job_name: "shipping" , repo_path: "https://github.com/sreedharm07/a-shipping.git" , folder_name: "ci-jobs"}
+     - { job_name: "user" , repo_path: "https://github.com/sreedharm07/a-user.git" , folder_name: "ci-jobs" }
+
 
 
     sjob:
