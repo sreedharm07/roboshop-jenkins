@@ -13,7 +13,7 @@ def call() {
                 userRemoteConfigs: [[url: "https://github.com/sreedharm07/a-cart.git"]])
 
 
-        if (env.TAG_NAME == ".*") {
+        if (env.TAG_NAME ==~ ".*") {
             common.compile()
             common.release()
         }
