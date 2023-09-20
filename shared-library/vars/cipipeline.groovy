@@ -17,8 +17,8 @@ def call() {
             common.compile()
         }
 
+        if (TAG_NAME == null)
         stage('test') {
-            if (TAG_NAME == null)
             echo 'test'
         }
 
