@@ -1,19 +1,19 @@
 def compile () {
 
-    if (code_type == "nodejs") {
+    if (env.code_type == "nodejs") {
         return "nodejs has no dependencies"
     }
 
-    if (code_type == "static") {
+    if (env.code_type == "static") {
         return "frontend has no dependencies"
     }
 
     stage("compile") {
-        if (code_type == "maven") {
+        if (env.code_type == "maven") {
             sh '/home/centos/maven/bin/mvn package'
         }
 
-        if (code_type == "python") {
+        if (env.code_type == "python") {
             print 'python'
         }
     }
