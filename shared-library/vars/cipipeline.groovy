@@ -29,8 +29,10 @@ def call() {
             }
         }
 
-        stage('code-security') {
-            echo 'code-security'
+        if ( env.BRANCH_NAME == "main") {
+            stage('code-security') {
+                echo 'code-security'
+            }
         }
 
         stage('release') {
