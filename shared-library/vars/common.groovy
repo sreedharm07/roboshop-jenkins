@@ -1,7 +1,7 @@
 def compile () {
 
-    if (env.code_type == "nodejs") {
-        return "nodejs has no dependencies"
+    if (env.code_type == "python") {
+        print 'python'
     }
 
     if (env.code_type == "static") {
@@ -13,8 +13,8 @@ def compile () {
             sh '/home/centos/maven/bin/mvn package'
         }
 
-        if (env.code_type == "python") {
-            print 'python'
+        if (env.code_type == "nodejs") {
+            return "nodejs has no dependencies"
         }
     }
 }
