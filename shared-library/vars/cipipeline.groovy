@@ -18,6 +18,7 @@ def call() {
         }
 
         stage('test') {
+            if (TAG_NAME == null)
             echo 'test'
         }
 
