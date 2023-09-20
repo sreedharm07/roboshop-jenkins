@@ -17,9 +17,10 @@ def call() {
             common.compile()
         }
 
-        if (TAG_NAME == null)
+        if (TAG_NAME == null){
         stage('test') {
             echo 'test'
+        }
         }
 
         stage('code-quality') {
