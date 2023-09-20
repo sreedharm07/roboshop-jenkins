@@ -5,9 +5,9 @@ def call() {
 
         if (env.TAG_NAME ==~ ".*") {
             env.BRANCH_NAME = "refs/tags/${env.TAG_NAME}"
-        } else
+        } else {
             env.BRANCH_NAME = "${env.BRANCH_NAME}"
-
+        }
         checkout scmGit(
                 branches: [[name: BRANCH_NAME]],
                 userRemoteConfigs: [[url: "https://github.com/sreedharm07/a-cart.git"]])
@@ -23,9 +23,10 @@ def call() {
             common.test()
             common.codequality()
             common.codesecurity()
-        } else
+        } else {
             common.compile()
             common.test()
             common.codequality()
-}
+        }
+    }
 }
