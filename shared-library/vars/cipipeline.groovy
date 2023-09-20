@@ -23,10 +23,9 @@ def call() {
             common.test()
             common.codequality()
             common.codesecurity()
-        } else {
+        } else
             common.compile()
             common.test()
             common.codequality()
-        }
 }
 }
