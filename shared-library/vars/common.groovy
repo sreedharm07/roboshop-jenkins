@@ -1,6 +1,6 @@
 def compile () {
     if (code_type == "maven") {
-        sh '/root/maven/bin/mvn package'
+        sh '/home/centos/maven/bin/mvn package'
     }
 
     if (code_type == "python") {
