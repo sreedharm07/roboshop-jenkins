@@ -21,8 +21,18 @@ def compile () {
 
     def test () {
         stage("test") {
-            print "test"
-        }
+            if (env.code_type == "nodejs") {
+                sh 'npm test'
+            }
+            if (env.code_type == "static") {
+                sh 'npm install'
+            }
+            if (env.code_type == "python") {
+                sh 'python -m unittest 3.6'
+            }
+            if (env.code_type == "maven") {
+                sh '/home/centos/maven/bin/mvn test'
+            }}
     }
 
     def codequality () {
