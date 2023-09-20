@@ -17,14 +17,16 @@ def call() {
             common.compile()
         }
 
-        if ( env.TAG_NAME == null){
-        stage('test') {
-            echo 'test'
-        }
+        if ( env.TAG_NAME == null) {
+            stage('test') {
+                echo 'test'
+            }
         }
 
-        stage('code-quality') {
-            echo 'code-quality'
+        if ( env.TAG_NAME == null) {
+            stage('code-quality') {
+                echo 'code-quality'
+            }
         }
 
         stage('code-security') {
