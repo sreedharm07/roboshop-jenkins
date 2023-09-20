@@ -1,44 +1,32 @@
 def call() {
 
     node('workstation') {
-         sh "find .| sed -e '1d' | xargs rm -rf "
+        sh "find .| sed -e '1d' | xargs rm -rf "
 
-        if (env.TAG_NAME ==~ ".*"){
+        if (env.TAG_NAME ==~ ".*") {
             env.BRANCH_NAME = "refs/tags/${env.TAG_NAME}"
-        }
-        else
+        } else
             env.BRANCH_NAME = "${env.BRANCH_NAME}"
 
         checkout scmGit(
                 branches: [[name: BRANCH_NAME]],
                 userRemoteConfigs: [[url: "https://github.com/sreedharm07/a-cart.git"]])
 
-        stage('compile-code') {
+
+        if (env.TAG_NAME == ".*") {
             common.compile()
+            common.release()
         }
 
-        if ( env.TAG_NAME == null) {
-            stage('test') {
-                echo 'test'
-            }
+        if (env.BRANCH_NAME == "main") {
+            common.compile()
+            common.test()
+            common.codequality()
+            common.codesecurity()
+        } else {
+            common.compile()
+            common.test()
+            common.codequality()
         }
-
-        if ( env.TAG_NAME == null) {
-            stage('code-quality') {
-                echo 'code-quality'
-            }
-        }
-
-        if ( env.BRANCH_NAME == "main") {
-            stage('code-security') {
-                echo 'code-security'
-            }
-        }
-
-        if ( env.TAG_NAME == ".*") {
-            stage('release') {
-                echo 'release'
-            }
-        }
-    }
+}
 }
