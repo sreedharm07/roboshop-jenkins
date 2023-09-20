@@ -17,7 +17,7 @@ def call() {
             common.compile()
         }
 
-        if (TAG_NAME == null){
+        if ( env.TAG_NAME == null){
         stage('test') {
             echo 'test'
         }
