@@ -1,7 +1,7 @@
 def compile () {
 
     if (env.code_type == "python") {
-        print 'python'
+        return "nodejs has no dependencies"
     }
 
     if (env.code_type == "static") {
@@ -14,7 +14,7 @@ def compile () {
         }
 
         if (env.code_type == "nodejs") {
-            return "nodejs has no dependencies"
+            sh 'npm install'
         }
     }
 }
