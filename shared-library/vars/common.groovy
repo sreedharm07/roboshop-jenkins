@@ -28,7 +28,7 @@ def compile () {
                 sh 'npm install'
             }
             if (env.code_type == "python") {
-                sh 'python -m unittest 3.6'
+                sh 'python3.6 -m unittest '
             }
             if (env.code_type == "maven") {
                 sh '/home/centos/maven/bin/mvn test'
