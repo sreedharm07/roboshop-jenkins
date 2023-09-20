@@ -2,6 +2,7 @@ def call() {
 
     node('workstation') {
         sh "find .| sed -e '1d' | xargs rm -rf "
+        sh 'env'
 
         if (env.TAG_NAME ==~ ".*") {
             env.BRANCH_NAME = "refs/tags/${env.TAG_NAME}"
