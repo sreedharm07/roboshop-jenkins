@@ -35,8 +35,10 @@ def call() {
             }
         }
 
-        stage('release') {
-            echo 'release'
+        if ( env.TAG_NAME == ".*") {
+            stage('release') {
+                echo 'release'
+            }
         }
     }
 }
