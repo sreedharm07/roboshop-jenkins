@@ -17,17 +17,17 @@ def call() {
         if (env.TAG_NAME ==~ ".*") {
             common.compile()
             common.release()
-        }
-
-        if (env.BRANCH_NAME == "main") {
-            common.compile()
-            common.test()
-            common.codequality()
-            common.codesecurity()
         } else {
-            common.compile()
-            common.test()
-            common.codequality()
+            if (env.BRANCH_NAME == "main") {
+                common.compile()
+                common.test()
+                common.codequality()
+                common.codesecurity()
+            } else {
+                common.compile()
+                common.test()
+                common.codequality()
+            }
         }
     }
 }
