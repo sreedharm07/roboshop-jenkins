@@ -9,7 +9,7 @@ def compile () {
         }
 
         if (code_type == "nodejs") {
-            print 'nodejs'
+           sh 'npm install'
         }
 
         if (code_type == "static") {
