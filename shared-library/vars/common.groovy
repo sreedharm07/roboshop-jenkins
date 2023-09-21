@@ -35,8 +35,8 @@ def compile () {
     }
 
     def codequality () {
-        sonaruser =  sh (script: 'aws ssm get-parameter --name "sonar.user" --query="Parameter.Value"',  returnStdout: true)
-        sonarpass =  sh (script: 'aws ssm get-parameter --name "sonar.password" --with-decryption --query="Parameter.Value"',  returnStdout: true)
+        sonaruser =  sh (script: 'aws ssm get-parameter --name "sonar.user" --query="Parameter.Value"',  returnStdout: true).trim()
+        sonarpass =  sh (script: 'aws ssm get-parameter --name "sonar.password" --with-decryption --query="Parameter.Value"',  returnStdout: true).trim()
 
 //        sonaruser =  sh ' aws ssm get-parameter --name "sonar.user" --query="Parameter.Value"'
 //        sonarpass =  sh ' aws ssm get-parameter --name "sonar.password" --with-decryption --query="Parameter.Value"'
