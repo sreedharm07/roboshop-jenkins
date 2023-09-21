@@ -36,7 +36,7 @@ def compile () {
 
     def codequality () {
         stage("codequality") {
-            print "codequality"
+           sh  "sonar-scanner -Dsonar.host.url=http://172.31.89.172:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true"
         }
     }
 
