@@ -35,8 +35,13 @@ def compile () {
     }
 
     def codequality () {
+        sonaruser =  sh (script: 'aws ssm get-parameter --name "sonar.user" --query="Parameter.Value"',  returnStdout: true)
+        sonarpass =  sh (script: 'aws ssm get-parameter --name "sonar.password" --with-decryption --query="Parameter.Value"',  returnStdout: true)
+
+//        sonaruser =  sh ' aws ssm get-parameter --name "sonar.user" --query="Parameter.Value"'
+//        sonarpass =  sh ' aws ssm get-parameter --name "sonar.password" --with-decryption --query="Parameter.Value"'
         stage("codequality") {
-           sh  "sonar-scanner -Dsonar.host.url=http://172.31.89.172:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true"
+           sh  "sonar-scanner -Dsonar.host.url=http://172.31.89.172:9000 -Dsonar.login=${sonaruser} -Dsonar.password=${sonarpass} -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true"
         }
     }
 
@@ -51,5 +56,3 @@ def release () {
         print "release"
     }
 }
-
-
