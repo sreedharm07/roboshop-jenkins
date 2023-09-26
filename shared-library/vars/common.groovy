@@ -62,12 +62,18 @@ def compile () {
 
 def release () {
     stage("release") {
-        if (code_type == "nodejs") {
-            sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_modules'
-        } else if (code_type == "maven") {
-            sh 'cp target/${component}-1.0.jar ${component}.jar; zip -r ${component}-${TAG_NAME}.zip ${component}.jar'
-        } else {
-            sh 'zip -r ${component}-${TAG_NAME}.zip package.json * '
+        env.nexususer = sh(script: 'aws ssm get-parameter --name "nexus.user" --query="Parameter.Value" | xargs', returnStdout: true).trim()
+        env.nexuspassword = sh(script: 'aws ssm get-parameter --name "nexus.password" --with-decryption --query="Parameter.Value" | xargs', returnStdout: true).trim()
+
+        wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: nexuspass]]]) {
+            if (code_type == "nodejs") {
+                sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_modules'
+            } else if (code_type == "maven") {
+                sh 'cp target/${component}-1.0.jar ${component}.jar; zip -r ${component}-${TAG_NAME}.zip ${component}.jar'
+            } else {
+                sh 'zip -r ${component}-${TAG_NAME}.zip package.json * '
+            }
+            sh 'curl -v -u {{ nexususer }}:{{ nexuspassword }} --upload-file {{component}}.{{TAG_NAME}}.zip https://172.31.80.172:8081/repository/{{component}}/{{component}}.{{appversion}}.zip'
         }
     }
 }
