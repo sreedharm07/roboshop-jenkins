@@ -62,10 +62,8 @@ def compile () {
 
 def release () {
     stage("release") {
-        print "release"
+        if (code_type == "nodejs") {
+   sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_module'
+        }
     }
 }
-
-
-
-//http://54.175.247.231:8080/multibranch-webhook-trigger/invoke?token=catalogue
