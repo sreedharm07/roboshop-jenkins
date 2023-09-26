@@ -73,7 +73,7 @@ def release () {
             } else {
                 sh 'zip -r ${component}-${TAG_NAME}.zip package.json * '
             }
-            sh 'curl -v -u {{ nexususer }}:{{ nexuspassword }} --upload-file {{component}}.{{TAG_NAME}}.zip https://172.31.80.172:8081/repository/{{component}}/{{component}}.{{appversion}}.zip'
+            sh 'curl -v -u ${nexususer}:${nexuspassword} --upload-file ${component}.${TAG_NAME}.zip https://172.31.80.172:8081/repository/${component}/${component}.${appversion}.zip'
         }
     }
 }
