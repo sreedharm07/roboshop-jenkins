@@ -65,7 +65,7 @@ def release () {
         if (code_type == "nodejs") {
             sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_modules'
         } else if (code_type == "maven") {
-            sh 'cp target/${component}-1.0.jar ${component}.jar; zip -r ${component}-${TAG_NAME}.zip {component}.jar'
+            sh 'cp target/${component}-1.0.jar ${component}.jar; zip -r ${component}-${TAG_NAME}.zip ${component}.jar'
         }
     }
 }
