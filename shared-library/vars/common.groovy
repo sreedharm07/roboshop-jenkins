@@ -65,7 +65,7 @@ def release () {
         env.nexususer = sh(script: 'aws ssm get-parameter --name "nexus.{env}.user" --query="Parameter.Value" | xargs', returnStdout: true).trim()
         env.nexuspassword = sh(script: 'aws ssm get-parameter --name "nexus.{env}.password" --with-decryption --query="Parameter.Value" | xargs', returnStdout: true).trim()
 
-        wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: nexuspass]]]) {
+        wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: nexuspassword]]]) {
             if (code_type == "nodejs") {
                 sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_modules'
             } else if (code_type == "maven") {
