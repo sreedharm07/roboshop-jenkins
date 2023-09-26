@@ -63,7 +63,7 @@ def compile () {
 def release () {
     stage("release") {
         if (code_type == "nodejs") {
-   sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_module'
+   sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_modules'
         }
     }
 }
