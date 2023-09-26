@@ -62,7 +62,7 @@ def compile () {
 
 def release () {
     stage("release") {
-        env.nexususer = sh(script: 'aws ssm get-parameter --name "nexus.dev.user" --query="Parameter.Value" | xargs', returnStdout: true).trim()
+        env.nexususer = sh(script: 'aws ssm get-parameter --name "nexus.dev.username" --query="Parameter.Value" | xargs', returnStdout: true).trim()
         env.nexuspassword = sh(script: 'aws ssm get-parameter --name "nexus.dev.password" --with-decryption --query="Parameter.Value" | xargs', returnStdout: true).trim()
 
         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: nexuspassword]]]) {
