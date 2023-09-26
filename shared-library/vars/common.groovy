@@ -63,3 +63,7 @@ def release () {
         print "release"
     }
 }
+
+
+
+//http://54.175.247.231:8080/multibranch-webhook-trigger/invoke?token=catalogue
