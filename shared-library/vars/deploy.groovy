@@ -36,7 +36,7 @@ ansible-playbook -i inv main.yml -e component=${COMPONENT} -e env=${ENV}
             }
             post {
                 always {
-                    CleanWc()
+                    cleanWs()
                 }
             }
         }
