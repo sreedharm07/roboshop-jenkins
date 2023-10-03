@@ -4,6 +4,7 @@ def call() {
         agent any
         options {
             ansiColor('xterm')
+        }
 
         parameters {
             string(name: 'COMPONENT', defaultValue: '', description: 'which component to deploy ?')
