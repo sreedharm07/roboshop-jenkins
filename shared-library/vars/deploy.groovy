@@ -23,18 +23,19 @@ def call() {
 
             stage('deploy') {
                 steps {
-                    echo "ok"
-//                    sh '''
-//
-//
-//'''
+                    sh '''
+aws ec2 describe-instances  --filters "Name=tag:Name,Values=${ENV}-${COMPONENT}" --query "Reservations[*].Instances[*].[PrivateIpAddress]" --output text >inv
+
+ansible-playbook -i inv main.yml -e component=${COMPONENT} -e env=${ENV}
+
+'''
+                }
+            }
+            post {
+                always {
+                    ClearWc()
                 }
             }
         }
     }
-//    post {
-//        always{
-//            ClearWc()
-//        }
-//    }
 }
