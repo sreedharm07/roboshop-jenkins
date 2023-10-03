@@ -11,11 +11,14 @@ def call() {
 
 
         stages {
+
             stage('aws-parameter value update') {
-                sh '''
+                steps {
+                    sh '''
                 aws ssm put-parameter --name "${COMPONENT}.${ENV}.${VERSION}" --type "String" --value "1.0.2" --overwrite
                 
                 '''
+                }
             }
 
             stage('deploy') {
