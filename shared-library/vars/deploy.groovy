@@ -32,9 +32,9 @@ def call() {
             }
         }
     }
-    post {
-        always{
-            ClearWc()
-        }
-    }
+//    post {
+//        always{
+//            ClearWc()
+//        }
+//    }
 }
