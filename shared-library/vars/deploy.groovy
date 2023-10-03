@@ -12,7 +12,9 @@ def call() {
             string(name: 'ENV', defaultValue: '', description: 'which environment to deploy ?')
             string(name: 'VERSION', defaultValue: '', description: 'which version to deploy ?')
         }
-
+        environment {
+            SSH = credentials('centos')
+        }
 
         stages {
 
@@ -30,7 +32,7 @@ def call() {
                     sh '''
 aws ec2 describe-instances  --filters "Name=tag:Name,Values=${ENV}-${COMPONENT}" --query "Reservations[*].Instances[*].[PrivateIpAddress]" --output text >inv
 
-ansible-playbook -i inv main.yml -e component=${COMPONENT} -e env=${ENV}
+ansible-playbook -i inv main.yml -e component=${COMPONENT} -e env=${ENV} -e ansible_user=${SSH_USR} -e ansible-password=${SSH_PWD}
 
 '''
                 }
