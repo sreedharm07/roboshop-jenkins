@@ -7,6 +7,7 @@ def call() {
             ansiColor('xterm')
         }
 
+
         parameters {
             string(name: 'COMPONENT', defaultValue: '', description: 'which component to deploy ?')
             string(name: 'ENV', defaultValue: '', description: 'which environment to deploy ?')
