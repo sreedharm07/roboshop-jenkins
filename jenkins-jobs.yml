@@ -6,6 +6,8 @@
     folder:
       - { folder_name: "ci-jobs" }
       - { folder_name: "infra-jobs"}
+      - { folder_name: "deployment-jobs" }
+
 
     mjob:
      - { job_name: "cart" , repo_path: "https://github.com/sreedharm07/a-cart.git" , folder_name: "ci-jobs" }
@@ -19,3 +21,4 @@
 
     sjob:
      - {job_name: "dispatch" , repo_path: "https://github.com/sreedharm07/a-dispatch.git" , folder_name: "infra-jobs"}
+     - {job_name: "deploy" , repo_path: "https://github.com/sreedharm07/roboshop-ansible.git" , folder_name: "deployment-jobs"}
