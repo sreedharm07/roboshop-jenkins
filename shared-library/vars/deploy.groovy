@@ -15,7 +15,7 @@ def call() {
             stage('aws-parameter value update') {
                 steps {
                     sh '''
-                aws ssm put-parameter --name "${COMPONENT}.${ENV}.${VERSION}" --type "String" --value "1.0.2" --overwrite
+                aws ssm put-parameter --name "${COMPONENT}.${ENV}.${VERSION}" --type "String" --value "${VERSION}" --overwrite
                 
                 '''
                 }
