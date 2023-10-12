@@ -25,7 +25,7 @@ def call() {
                 aws ssm put-parameter --name "${COMPONENT}.${ENV}.${VERSION}" --type "String" --value "${VERSION}" --overwrite
                 
                 '''
-                    script{
+                    script {
                         addShortText(text: "${ENV}-${COMPONENT}-${VERSION}")
                     }
                 }
