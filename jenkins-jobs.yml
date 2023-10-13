@@ -22,3 +22,4 @@
     sjob:
      - {job_name: "roboshop-infra" , repo_path: "https://github.com/sreedharm07/prac_demo.git" , folder_name: "infra-jobs"}
      - {job_name: "deploy" , repo_path: "https://github.com/sreedharm07/roboshop-ansible.git" , folder_name: "deployment-jobs"}
+     - {job_name: "helm-charts" , repo_path: "https://github.com/sreedharm07/robo-helm.git" , folder_name: "deployment-jobs"}
