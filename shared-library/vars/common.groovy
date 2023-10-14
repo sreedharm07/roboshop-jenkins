@@ -59,21 +59,26 @@ def compile () {
             print "codesecurity"
         }
     }
+//
+//def release () {
+//    stage("release") {
+//        env.nexususer = sh(script: 'aws ssm get-parameter --name "nexus.dev.username" --query="Parameter.Value" | xargs', returnStdout: true).trim()
+//        env.nexuspassword = sh(script: 'aws ssm get-parameter --name "nexus.dev.password" --with-decryption --query="Parameter.Value" | xargs', returnStdout: true).trim()
+//
+//        wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: nexuspassword]]]) {
+//            if (code_type == "nodejs") {
+//                sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_modules server.js ${schemadir}'
+//            } else if (code_type == "maven") {
+//                sh 'cp target/${component}-1.0.jar ${component}.jar; zip -r ${component}-${TAG_NAME}.zip ${component}.jar ${schemadir}'
+//            } else {
+//                sh 'zip -r ${component}-${TAG_NAME}.zip package.json * '
+//            }
+//            sh 'curl -v -u ${nexususer}:${nexuspassword} --upload-file ${component}-${TAG_NAME}.zip http://172.31.80.172:8081/repository/${component}/${component}-${TAG_NAME}.zip'
+//        }
+//    }
+//}
 
 def release () {
     stage("release") {
-        env.nexususer = sh(script: 'aws ssm get-parameter --name "nexus.dev.username" --query="Parameter.Value" | xargs', returnStdout: true).trim()
-        env.nexuspassword = sh(script: 'aws ssm get-parameter --name "nexus.dev.password" --with-decryption --query="Parameter.Value" | xargs', returnStdout: true).trim()
-
-        wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: nexuspassword]]]) {
-            if (code_type == "nodejs") {
-                sh 'zip -r ${component}-${TAG_NAME}.zip package.json node_modules server.js ${schemadir}'
-            } else if (code_type == "maven") {
-                sh 'cp target/${component}-1.0.jar ${component}.jar; zip -r ${component}-${TAG_NAME}.zip ${component}.jar ${schemadir}'
-            } else {
-                sh 'zip -r ${component}-${TAG_NAME}.zip package.json * '
-            }
-            sh 'curl -v -u ${nexususer}:${nexuspassword} --upload-file ${component}-${TAG_NAME}.zip http://172.31.80.172:8081/repository/${component}/${component}-${TAG_NAME}.zip'
-        }
+        sh ' '
     }
-}
