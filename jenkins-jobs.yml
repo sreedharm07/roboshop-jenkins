@@ -17,6 +17,7 @@
      - { job_name: "shipping" , repo_path: "https://github.com/sreedharm07/a-shipping.git" , folder_name: "ci-jobs"}
      - { job_name: "user" , repo_path: "https://github.com/sreedharm07/a-user.git" , folder_name: "ci-jobs" }
      - { job_name: "in-it-cont-parameters" , repo_path: "https://github.com/sreedharm07/in-it-cont-parameters.git" , folder_name: "ci-jobs" }
+     - { job_name: "schema-container" , repo_path: "https://github.com/sreedharm07/schema-container.git" , folder_name: "ci-jobs" }
 
 
 
