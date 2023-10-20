@@ -10,12 +10,12 @@
 
 
     mjob:
-     - { job_name: "cart" , repo_path: "https://github.com/sreedharm07/a-cart.git" , folder_name: "ci-jobs" }
-     - { job_name: "frontend" , repo_path: "https://github.com/sreedharm07/a-frontend.git" , folder_name: "ci-jobs"}
-     - { job_name: "catalogue" , repo_path: "https://github.com/sreedharm07/a-catalogue.git" , folder_name: "ci-jobs"}
-     - { job_name: "payment" , repo_path: "https://github.com/sreedharm07/a-payment.git" , folder_name: "ci-jobs"}
-     - { job_name: "shipping" , repo_path: "https://github.com/sreedharm07/a-shipping.git" , folder_name: "ci-jobs"}
-     - { job_name: "user" , repo_path: "https://github.com/sreedharm07/a-user.git" , folder_name: "ci-jobs" }
+     - { job_name: "cart" , repo_path: "https://github.com/sreedharm07/cart.git" , folder_name: "ci-jobs" }
+     - { job_name: "frontend" , repo_path: "https://github.com/sreedharm07/frontend.git" , folder_name: "ci-jobs"}
+     - { job_name: "catalogue" , repo_path: "https://github.com/sreedharm07/catalogue.git" , folder_name: "ci-jobs"}
+     - { job_name: "payment" , repo_path: "https://github.com/sreedharm07/payment.git" , folder_name: "ci-jobs"}
+     - { job_name: "shipping" , repo_path: "https://github.com/sreedharm07/shipping.git" , folder_name: "ci-jobs"}
+     - { job_name: "user" , repo_path: "https://github.com/sreedharm07/user.git" , folder_name: "ci-jobs" }
      - { job_name: "in-it-cont-parameters" , repo_path: "https://github.com/sreedharm07/in-it-cont-parameters.git" , folder_name: "ci-jobs" }
      - { job_name: "schema-container" , repo_path: "https://github.com/sreedharm07/schema-container.git" , folder_name: "ci-jobs" }
 
